@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VitalPet — Rede Solidária de Doação de Sangue Pet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- BARRA DE NAVEGAÇÃO INSTITUCIONAL -->
+  <header class="navbar">
+    <div class="logo">VitalPet 🐾 <span>Doação de Sangue</span></div>
+    <nav class="nav-links">
+      <button class="nav-btn active" id="btnMenuTutor" onclick="trocarTela('tutor')">Quero Doar (Tutor)</button>
+      <button class="nav-btn btn-vet" id="btnMenuClinica" onclick="trocarTela('clinica')">Área das Clínicas 🔒</button>
+    </nav>
+  </header>
+
+  <main class="container">
+    
+    <!-- TELA 1: VISÃO DO TUTOR -->
+    <section id="telaTutor" class="tela active">
+      
+      <!-- HERO BANNER INSTITUCIONAL -->
+      <div class="hero-card">
+        <div class="hero-text">
+          <span class="badge">❤️ Salve Vidinhas na Sua Região</span>
+          <h1>Seu pet pode ser o herói que outro animal precisa hoje.</h1>
+          <p>O VitalPet é uma rede solidária criada para conectar tutores de pets doadores diretamente a clínicas e hospitais veterinários em momentos de emergência.</p>
+        </div>
+      </div>
+
+      <!-- ESTATÍSTICAS DE IMPACTO -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">+150</div>
+          <div class="stat-label">Pets Cadastrados</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">Gratuito e Voluntário</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">+30</div>
+          <div class="stat-label">Clínicas Parceiras</div>
+        </div>
+      </div>
+
+      <!-- FORMULÁRIO DE CADASTRO COM SELO DE SEGURANÇA -->
+      <div class="card">
+        <div class="card-header-flex">
+          <div>
+            <h2>Cadastre seu Pet Doador</h2>
+            <p class="subtitle">Leve apenas 2 minutos para preencher. O cadastro é totalmente gratuito.</p>
+          </div>
+          <div class="security-badge">
+            🛡️ <strong>Dados Protegidos:</strong> Seus dados só são visíveis para clínicas autorizadas.
+          </div>
+        </div>
+        
+        <form id="formDoador">
+          <div class="form-group">
+            <label for="nomeTutor">Nome do Tutor *</label>
+            <input type="text" id="nomeTutor" placeholder="Digite..." required>
+          </div>
+
+          <div class="form-group">
+            <label for="whatsapp">WhatsApp para Emergências (com DDD) *</label>
+            <input type="tel" id="whatsapp" placeholder="Digite..." required>
+          </div>
+
+          <div class="form-group">
+            <label for="cidade">Sua Cidade / Estado *</label>
+            <input type="text" id="cidade" placeholder="Digite..." required>
+          </div>
+
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="nomePet">Nome do Pet *</label>
+              <input type="text" id="nomePet" placeholder="Digite..." required>
+            </div>
+
+            <div class="form-group">
+              <label for="especie">Espécie *</label>
+              <select id="especie" onchange="atualizarTiposSanguineos()" required>>
+                <option value="Cão">Cão</option>
+                <option value="Gato">Gato</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="tipoSanguineo">Tipo Sanguíneo</label>
+              <select id="tipoSanguineo">
+                <option value="Não sei / A testar na clínica">Selecione a espécie primeiro...</option>
+              </select>
+            </div>
+
+ <div class="form-group">
+      <label for="raca">Raça *</label>
+      <input type="text" id="raca" list="listaRacas" placeholder="Clique para ver opções ou digite..." required>
+  
+  <!-- Lista de sugestões que aparece ao clicar no campo -->
+        <datalist id="listaRacas">
+        <option value="SRD / Vira-lata">
+        <option value="Não sei informar">
+        <option value="Não sei a raça">
+  </datalist></div>
+
+            <div class="form-group">
+              <label for="porte">Porte / Peso *</label>
+              <select id="porte" required>
+                <option value="Pequeno (05-10kg)">Pequeno (05-10kg)</option>
+                <option value="Médio (15-25kg)">Médio (15-25kg)</option>
+                <option value="Grande (+25kg)">Grande (+25kg)</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-primary">❤️ Concluir Cadastro do Doador</button>
+        </form>
+      </div>
+
+      <!-- SEÇÃO COMO FUNCIONA -->
+      <div class="card section-spacing">
+        <h2>Como Funciona a Rede VitalPet?</h2>
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-icon">1️⃣</div>
+            <h3>Você Cadastra</h3>
+            <p>Preencha os dados básicos do seu pet e o WhatsApp para contato emergencial.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">2️⃣</div>
+            <h3>Clínicas Buscam</h3>
+            <p>Quando um pet precisa de transfusão, clínicas veterinárias buscam no sistema pela região e tipo sanguíneo.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-icon">3️⃣</div>
+            <h3>Contato Direto</h3>
+            <p>A clínica entra em contato direto com você via WhatsApp para verificar a disponibilidade do doador.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SEÇÃO QUEM SOMOS -->
+      <div class="card section-spacing about-card">
+        <h2>Quem Somos Nós?</h2>
+        <p>O <strong>VitalPet</strong> nasceu do compromisso comunitário em salvar vidas animais. Sabemos o quão desesperador é procurar um doador de sangue pet em uma emergência cirúrgica ou de intoxicação.</p>
+        <p>Não vendemos dados e não cobramos taxas. Nossa única missão é agilizar a ponte entre tutores solidários e os profissionais veterinários que estão na linha de frente do atendimento.</p>
+      </div>
+
+      <!-- MURAL DE DEPOIMENTOS E COMENTÁRIOS -->
+      <div class="card section-spacing">
+        <h2>Mural de Depoimentos e Comentários 💬</h2>
+        <p class="subtitle">Veja a experiência de quem já faz parte da nossa rede ou deixe seu recado!</p>
+        <p class="subtitle">Opcional</p>
+
+        <form id="formComentario" class="form-comentario">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="autorComentario">Seu Nome *</label>
+              <input type="text" id="autorComentario" placeholder="Digite..." required>
+            </div>
+            <div class="form-group">
+              <label for="petComentario">Nome e Raça do Pet *</label>
+              <input type="text" id="petComentario" placeholder="Digite..." required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="textoComentario">Seu Comentário ou Relato *</label>
+            <textarea id="textoComentario" rows="3" placeholder="Conte como foi sua experiência ou envie uma mensagem de apoio..." required></textarea>
+          </div>
+          <button type="submit" class="btn-secondary">Enviar Comentário</button>
+        </form>
+
+        <div id="listaComentarios" class="testimonials-grid" style="margin-top: 1.8rem;">
+        </div>
+      </div>
+
+    </section>
+
+    <!-- TELA 2: EXCLUSIVA DAS CLÍNICAS -->
+    <section id="telaClinica" class="tela">
+      
+      <!-- PAINEL DE LOGIN E CADASTRO DA CLÍNICA -->
+      <div id="loginClinicaBox" class="card login-card">
+        <h2>Acesso Institucional — Veterinários</h2>
+        <p class="subtitle">Acesse ou cadastre seu estabelecimento para localizar doadores na sua cidade.</p>
+
+        <div class="sub-tabs">
+          <button type="button" class="sub-tab-btn active" id="btnTabLogin" onclick="alternarFormVet('login')">Já Tenho Cadastro</button>
+          <button type="button" class="sub-tab-btn" id="btnTabCadastro" onclick="alternarFormVet('cadastro')">Cadastrar Minha Clínica</button>
+        </div>
+
+        <form id="formLoginVet">
+          <div class="form-group">
+            <label for="emailClinicaLogin">E-mail Corporativo</label>
+            <input type="email" id="emailClinicaLogin" placeholder="Ex: contato@vetvida.com" required>
+          </div>
+          <div class="form-group">
+            <label for="senhaClinicaLogin">Senha de Acesso</label>
+            <input type="password" id="senhaClinicaLogin" placeholder="Digite sua senha (Dica: vet123)" required>
+          </div>
+          <button type="button" class="btn-primary" onclick="autenticarClinica()">Entrar na Plataforma</button>
+        </form>
+
+        <form id="formCadastroVet" style="display: none;">
+          <div class="form-group">
+            <label for="nomeClinicaReg">Nome da Clínica / Hospital Vet *</label>
+            <input type="text" id="nomeClinicaReg" placeholder="Ex: Hospital Veterinário VetVida" required>
+          </div>
+          <div class="form-group">
+            <label for="emailClinicaReg">E-mail Corporativo *</label>
+            <input type="email" id="emailClinicaReg" placeholder="Ex: atendimento@vetvida.com" required>
+          </div>
+          <div class="form-group">
+            <label for="cidadeClinicaReg">Cidade / Região Atendida *</label>
+            <input type="text" id="cidadeClinicaReg" placeholder="Ex: Alagoinhas - BA, Curitiba..." required>
+          </div>
+          <div class="form-group">
+            <label for="senhaClinicaReg">Crie uma Senha *</label>
+            <input type="password" id="senhaClinicaReg" placeholder="Mínimo 6 caracteres" required>
+          </div>
+          <button type="button" class="btn-primary" onclick="cadastrarClinica()">Cadastrar Estabelecimento</button>
+        </form>
+      </div>
+
+      <!-- PAINEL INTERNO DA CLÍNICA -->
+      <div id="painelVetExclusivo" style="display: none;">
+        <div class="card">
+          <div class="painel-header">
+            <div>
+              <h2 id="nomeClinicaLogada">Painel do Estabelecimento</h2>
+              <p id="infoRegiaoLogada" style="color: #666; font-size: 0.9rem; margin-top: 0.2rem;"></p>
+            </div>
+            <button type="button" class="btn-sair" onclick="sairClinica()">Encerrar Sessão</button>
+          </div>
+
+          <div class="filtro-box">
+            <input type="text" id="buscaCidade" placeholder="🔍 Cidade..." onkeyup="filtrarDoadores()">
+            <input type="text" id="buscaRaca" placeholder="🔍 Raça..." onkeyup="filtrarDoadores()">
+            <select id="buscaEspecie" onchange="filtrarDoadores()">
+              <option value="">Todas as espécies</option>
+              <option value="Cão">Cão</option>
+              <option value="Gato">Gato</option>
+            </select>
+            <select id="buscaSangue" onchange="filtrarDoadores()">
+              <option value="">Todos os tipos sanguíneos</option>
+              <option value="DEA 1 Negativo (Doador Universal)">DEA 1 Negativo (Universal)</option>
+              <option value="DEA 1 Positivo">DEA 1 Positivo</option>
+              <option value="Tipo A">Tipo A (Gato)</option>
+              <option value="Tipo B">Tipo B (Gato)</option>
+              <option value="Tipo AB">Tipo AB (Gato)</option>
+              <option value="Não sei / A testar na clínica">Não testado</option>
+            </select>
+          </div>
+
+          <div class="table-responsive">
+            <table>
+              <thead>
+                <tr>
+                  <th>Pet</th>
+                  <th>Espécie</th>
+                  <th>Tipo Sanguíneo 🩸</th>
+                  <th>Raça</th>
+                  <th>Porte</th>
+                  <th>Cidade</th>
+                  <th>Tutor</th>
+                  <th>Ação Rápida</th>
+                </tr>
+              </thead>
+              <tbody id="tabelaDoadores">
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p><strong>VitalPet 🐾</strong> — Plataforma comunitária de incentivo à doação de sangue animal.</p>
+    <p class="footer-sub">Transparência, amor e compromisso com a vida dos pets.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
